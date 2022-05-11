@@ -33,7 +33,7 @@ public class MovimentacaoService {
         movimentacao.setTipo(novaMovimentacao.getTipo());
         movimentacao.setValor(valor);
 
-        Correntista correntista = correntistaRepository.findAllById(novaMovimentacao.getIdConta()).orElse(null);
+        Correntista correntista = correntistaRepository.findById(novaMovimentacao.getIdConta()).orElse(null);
         if (correntista != null){
             correntista.getConta().setSaldo(correntista.getConta().getSaldo() + valor);
             correntistaRepository.save(correntista);
