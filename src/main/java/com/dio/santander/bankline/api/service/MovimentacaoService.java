@@ -24,7 +24,7 @@ public class MovimentacaoService {
 
         Double valor = novaMovimentacao.getValor();
         if (novaMovimentacao.getTipo() == MovimentacaoTipo.DESPESA) {
-            valor += -1;
+            valor = valor * -1;
         }
 
         movimentacao.setDataHora(LocalDateTime.now());
